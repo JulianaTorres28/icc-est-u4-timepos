@@ -1,18 +1,18 @@
-## Getting Started
+### Estructura de datos
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Nombre: Juliana Torres
 
-## Folder Structure
+## Benchmarking de Algoritmos de Ordenamiento en Java
 
-The workspace contains two folders by default, where:
+Descripción del Proyecto
+Este proyecto implementa y compara el rendimiento de cinco algoritmos de ordenamiento clásicos en Java:
+- Bubble Sort
+- Selection Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+Cada algoritmo se ejecuta sobre arreglos de diferentes tamaños (1000, 10000, 25000, 50000, 100000) y se mide el tiempo de ejecución usando System.nanoTime() para obtener precisión en nanosegundos.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Resultados
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+![alt text](assents/image.png)

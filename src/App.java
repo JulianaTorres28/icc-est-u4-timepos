@@ -45,18 +45,52 @@ public class App {
         int[] array250000 = new int[25000];
         System.arraycopy(originalArray, 0, array250000, 0, 25000);
 
-        int[][] arrays = { array1000, array10000, array250000, array50000, array100000, originalArray};
+        int[][] arrays = { array1000, array10000, array250000, array50000, array100000, originalArray };
         SortMethods sorter = new SortMethods();
 
         for (int[] array : arrays) {
             int size = array.length;
-            Callable<Void> funCallable = () -> {
-                sorter.sortBubble(array);
+
+            // Bubble
+            Callable<Void> bubbleCallable = () -> {
+                sorter.sortBubble(array.clone());
                 return null;
             };
-            Results result = BenchMarking.medir_tiempo(funCallable, size, "Bubble Sort");
-            System.out.println(result);
+            Results resultBubble = BenchMarking.medir_tiempo(bubbleCallable, size, "Bubble Sort");
+            System.out.println(resultBubble);
 
+            // Selection
+            Callable<Void> selectionCallable = () -> {
+                sorter.selectionSort(array.clone());
+                return null;
+            };
+            Results resultSelection = BenchMarking.medir_tiempo(selectionCallable, size, "Selection Sort");
+            System.out.println(resultSelection);
+
+            // Insertion
+            Callable<Void> insertionCallable = () -> {
+                sorter.insertionSort(array.clone());
+                return null;
+            };
+            Results resultInsertion = BenchMarking.medir_tiempo(insertionCallable, size, "Insertion Sort");
+            System.out.println(resultInsertion);
+
+            // Merge
+            Callable<Void> mergeCallable = () -> {
+                int[] clone = array.clone();
+                SortMethods.mergeSort(clone, 0, clone.length - 1);
+                return null;
+            };
+            Results resultMerge = BenchMarking.medir_tiempo(mergeCallable, size, "Merge Sort");
+            System.out.println(resultMerge);
+
+            Callable<Void> quickCallable = () -> {
+                int[] clone = array.clone();
+                SortMethods.quickSort(clone, 0, clone.length - 1); 
+                return null;
+            };
+            Results resultQuick = BenchMarking.medir_tiempo(quickCallable, size, "Quick Sort");
+            System.out.println(resultQuick);
         }
 
     }
